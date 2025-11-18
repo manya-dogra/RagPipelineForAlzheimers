@@ -9,7 +9,6 @@ def summarize_with_model(text, model_name):
     """Generate summary using a specific model and measure time."""
     print(f"\n🧠 Loading model: {model_name}")
     summarizer = hf_pipeline("summarization", model=model_name, device=-1)
-
     max_chunk_size = 500
     words = text.split()
     chunks = [" ".join(words[i:i + max_chunk_size]) for i in range(0, len(words), max_chunk_size)]
