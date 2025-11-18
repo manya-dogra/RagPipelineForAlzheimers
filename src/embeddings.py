@@ -16,7 +16,6 @@ def build_faiss_index(docs, model_name="all-MiniLM-L6-v2"):
     index = faiss.IndexFlatL2(dim)
     index.add(embeddings)
     
-    # Save FAISS index + docs
     faiss.write_index(index, str(EMBEDDINGS_DIR / "faiss_index.bin"))
     with open(EMBEDDINGS_DIR / "docs.pkl", "wb") as f:
         pickle.dump(docs, f)

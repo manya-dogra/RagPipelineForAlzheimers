@@ -2,7 +2,7 @@ import time
 import csv
 from transformers import pipeline as hf_pipeline
 import evaluate
-from retriever import load_index  # make sure retriever.py exists in src/
+from retriever import load_index  
 
 def compare_models(query):
     index, docs = load_index()
@@ -16,14 +16,12 @@ def compare_models(query):
     ]
 
     results = {}
-    input_text = " ".join(docs[:5])  # small subset for demo
+    input_text = " ".join(docs[:5])  
 
-    # Split text into smaller chunks (avoid exceeding token limits)
     max_chunk_size = 350
     words = input_text.split()
     chunks = [" ".join(words[i:i + max_chunk_size]) for i in range(0, len(words), max_chunk_size)]
 
-    # Load metrics once outside the loop
     rouge = evaluate.load("rouge")
     bleu = evaluate.load("bleu")
     bertscore = evaluate.load("bertscore")
@@ -44,9 +42,8 @@ def compare_models(query):
         end = time.time()
 
         final_summary = " ".join(summaries)
-        reference = input_text[:1000]  # fake reference for now
+        reference = input_text[:1000]  
 
-        # === Compute metrics ===
         rouge_score = rouge.compute(predictions=[final_summary], references=[reference])
         bleu_score = bleu.compute(predictions=[final_summary], references=[reference])
         bert_score = bertscore.compute(predictions=[final_summary], references=[reference], lang="en")
