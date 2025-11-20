@@ -39,14 +39,14 @@ def query_local_rag(query, top_k=10):
     Performs RAG with over-retrieval/deduplication, and summarizes the results
     using multiple models for comparison.
     """
-    print("🔍 Retrieving relevant documents...")
+    print(" Retrieving relevant documents...")
     results = query_faiss(query, top_k=top_k, dedup_by_source=True)
     print(f" Retrieved {len(results)} unique documents after de-dup.\n")
 
     input_text = " ".join([r.page_content if hasattr(r, 'page_content') else str(r) for r in results])
 
     models = [
-        "sshleifer/distilbart-cnn-12-6",
+         "sshleifer/distilbart-cnn-12-6",
         "t5-small",
         "facebook/bart-large-cnn",
         "google/flan-t5-base",
