@@ -6,26 +6,36 @@ numpy==1.26.4               # Numerical operations
 
 # Data sources
 chembl-webresource-client==0.10.9   # Fetch data from ChEMBL
-biopython==1.84                     # Optional (drug/protein parsing, if needed)
+biopython==1.84                     # Optional (drug/protein parsing)
 
 # Embeddings + Vector Store
 faiss-cpu==1.12.0
-sentence-transformers==3.0.1 # Embedding generation
+sentence-transformers==3.0.1        # Embedding generation
 
 # NLP / LLM
-transformers==4.44.2        # HuggingFace models
-torch==2.4.1                # Backend for transformers
-openai==1.44.0              # For OpenAI API (if using GPT)
+transformers==4.44.2                # HuggingFace models
+torch==2.4.1                        # Backend for transformers
+openai==1.44.0                      # OpenAI API (optional)
+
+# Evaluation / Metrics  
+evaluate==0.4.2                     # Unified evaluation framework
+datasets==2.21.0                    # Required by evaluate
+rouge-score==0.1.2                  # ROUGE metric backend
+sacrebleu==2.4.3                    # BLEU metric backend
+bert-score==0.3.13                  # Semantic similarity metric
 
 # Utilities
-tqdm==4.66.5                # Progress bars
-loguru==0.7.2               # Logging
-pyyaml==6.0.2               # Configs
+tqdm==4.66.5                        # Progress bars
+loguru==0.7.2                       # Logging
+pyyaml==6.0.2                       # Configs
+streamlit==1.26.1                   # Web app interface
+PyPDF2==3.1.1                       # PDF parsing
+docx2txt==0.8                       # DOCX parsing
 
-# Notebooks
+# Notebooks / Visualization
 jupyterlab==4.2.5
-matplotlib==3.9.2           # Visualizations
-seaborn==0.13.2             # Advanced visualizations
+matplotlib==3.9.2                   # Visualizations
+seaborn==0.13.2                     # Advanced visualizations
 
 # Testing
 pytest==8.3.3
