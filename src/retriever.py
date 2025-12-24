@@ -4,7 +4,10 @@ from sentence_transformers import SentenceTransformer
 import pickle
 from pathlib import Path
 
-EMBEDDINGS_DIR = Path("data/embeddings")
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+EMBEDDINGS_DIR = BASE_DIR / "data" / "embeddings"
 
 def load_index():
     index = faiss.read_index(str(EMBEDDINGS_DIR / "faiss_index.bin"))

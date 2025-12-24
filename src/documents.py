@@ -2,7 +2,7 @@
 import pandas as pd
 from pathlib import Path
 
-PROCESSED_DATA_DIR = Path("data/processed")
+PROCESSED_DATA_DIR = Path("RagPipelineForAlzheimers/data/processed")
 
 ALLOWLIST = [
     "NCT Number", "Study Title", "Study URL", "Study Status",
@@ -13,7 +13,7 @@ ALLOWLIST = [
     "source_nct", "variant_id", "variant_method", "variant_quality"
 ]
 
-def trials_to_docs(file_name="alzheimers_trials_aug.csv"):
+def trials_to_docs(file_name="alzheimers_trials_aug_v2.csv"):
     df = pd.read_csv(PROCESSED_DATA_DIR / file_name)
     # keep only columns that exist
     use_cols = [c for c in ALLOWLIST if c in df.columns]

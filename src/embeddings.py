@@ -5,7 +5,7 @@ from documents import trials_to_docs
 from pathlib import Path
 import pickle
 
-EMBEDDINGS_DIR = Path("data/embeddings")
+EMBEDDINGS_DIR = Path("RagPipelineForAlzheimers/data/embeddings")
 EMBEDDINGS_DIR.mkdir(parents=True, exist_ok=True)
 
 def build_faiss_index(docs, model_name="all-MiniLM-L6-v2"):
