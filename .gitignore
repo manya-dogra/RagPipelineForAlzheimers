@@ -9,6 +9,29 @@ __pycache__/
 # Environment variables
 .env
 
+# =============================
+# Generated RAG artifacts
+# =============================
+
+# Processed datasets (very large)
+data/processed/
+
+# Embeddings & FAISS indexes
+data/embeddings/
+
+# Serialized objects
+*.pkl
+*.bin# Virtual environments
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
 # Large generated files
 *.pkl
 *.bin
